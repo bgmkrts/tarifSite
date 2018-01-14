@@ -1,0 +1,31 @@
+<%= render 'shared/page_title', title: "Şefler" %>
+
+<ul class="nav nav-tabs">
+    <li>
+        <%= link_to "Tarifler", recipes_path %>
+    </li>
+    <li class="active">
+        <%= link_to "Şefler", chefs_path %>
+    </li>
+
+</ul>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <%= will_paginate %>
+        
+    </div>                          
+</div><!-- PAGINATE ROW -->
+
+<% @chefs.each do |chef| %>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 center">
+            <%= link_to gravatar_for(chef, size: 200), chef_path(chef) %>
+            <p>
+                <h5>Chef name: <%= chef.chefname %></h5>
+            </p>
+            
+        </div>                          
+    </div><!-- GRAVATAR ROW -->
+
+<% end %>
